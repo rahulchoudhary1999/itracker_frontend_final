@@ -56,7 +56,8 @@ export class ViewskillComponent implements OnInit {
     }
     public onAddSkill(addSkillForm: NgForm): void{
       document.getElementById('add-employee-form')?.click();
-      // console.log(addSkillForm.value);
+       console.log(addSkillForm.value);
+      
       this.skillService.addSkill(addSkillForm.value).subscribe(
         (response: Skills)=>{
           console.log(response);
