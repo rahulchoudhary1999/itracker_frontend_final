@@ -1,0 +1,16 @@
+.table {
+    background-color: rgb(227, 234, 236);
+    font-size: large;
+   
+}
+#show{
+    margin-left: 15%;
+}
+button{
+    margin-left: 30%;
+    border: solid;
+    background: whitesmoke;
+    border-radius: 10px;
+    border-width: 4px;
+    border-color: purple;
+}

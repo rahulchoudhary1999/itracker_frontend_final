@@ -1,0 +1,54 @@
+.home{
+    text-align: center;
+    display: inline-block;
+    background-color: #f5f5f5;
+}
+
+.heading{
+    margin: 30px 0;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #007BFF;
+}
+
+.input{
+    margin-left: auto;
+    margin-right: auto;
+}
+.input-field{
+    margin: 20px;
+}
+
+
+.search-btn{
+    margin-bottom: 10px;
+    margin-left: 20px;
+    background-color: #007BFF;
+}
+
+.job{
+    border-collapse: "collapse";
+    width: 90%;
+    margin: auto;
+}
+
+.table-heading{
+    padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #007BFF;
+  color: white;
+}
+
+.job td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.job th
+{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.job tr:nth-child(even){background-color: #f2f2f2;}
