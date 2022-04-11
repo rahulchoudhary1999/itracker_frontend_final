@@ -3,9 +3,9 @@
             
         <div class="form-group">
            <label for="employeeId">Employee Id</label>
-           <input type="text" ngModel name="employeeId" class="form-control" id="emp_id" placeholder="emp_id" required>
+           <input type="text" ngModel name="employeeId" class="form-control" id="emp_id" placeholder={{employeeId}} readonly>
            <label for="employeeName">Employee Name</label> 
-           <input type="text" class="form-control" id="name" ngModel name ="employeeName" placeholder="emloyee_name" required>
+           <input type="text" class="form-control" id="name" ngModel name ="employeeName" placeholder={{employeeName}} readonly>
            <label for="Interviews_taken">Number of Interviews Taken</label>
            <input type="text" class="form-control" id="Interviews_taken" ngModel name ="Interviews_taken" required>       
            <label for="category">Category</label>
