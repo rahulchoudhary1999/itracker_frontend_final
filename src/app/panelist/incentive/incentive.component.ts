@@ -14,11 +14,15 @@ export class IncentiveComponent implements OnInit {
   incentive : Incentive;
   subject: string;
   body: string;
-
+  employeeId: any;
+  employeeName: any;
   mailto: Mailto;
 
 
-  constructor(private mailtoService: NgxMailtoService) { }
+  constructor(private mailtoService: NgxMailtoService) {
+    this.employeeId= localStorage.getItem("employeeId");
+    this.employeeName= localStorage.getItem("name");
+   }
 
   ngOnInit(): void {
   }
@@ -30,8 +34,8 @@ export class IncentiveComponent implements OnInit {
     this.subject = "Incentive Request";
     this.body = `
     Good Day!
-    This is ${this.incentive.employeeName} 
-    having Employee Id : ${this.incentive.employeeId}
+    This is ${this.employeeName} 
+    having Employee Id : ${this.employeeId}
     passing an incentive request for : 
     Category: ${this.incentive.Category}
     Number of Interviews taken : ${this.incentive.Interviews_taken}
