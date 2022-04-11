@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Candidate } from 'src/app/entities/candidate';
 import { CandidateService } from 'src/app/services/candidate.service';
 @Component({
@@ -8,52 +9,65 @@ import { CandidateService } from 'src/app/services/candidate.service';
 })
 export class CandidateListComponent implements OnInit {
 
-  candidates : Candidate[];
-  /*
-  columnDefs = [
-      {headerName : 'Sno',field : 'sno'},
-      {headerName : 'Employee Id',field : 'empId'},
-      {headerName : 'Candidate Id',field : 'candidateId'},
-      {headerName : 'Date',field : 'date'},
-      {headerName : 'Time',field : 'time'},
-      {headerName : 'Round',field : 'round'}
-  ];
-  gridOptions = {
-    columnDefs:this.columnDefs,
-    enableSorting :true,
-    enableFilter :true,
-    pagination : true
-  };
-  fetch('http://localhost:8080/recruiter-options/getScheduledInterviews').then(function(response) {
-    return response.json();
-  }).then(function(data){
-    const colDefs=this.gridOptions.pagination.getColumnDefs();
-    colDefs.length=0;
-    const keys=Object.keys(data[0])
-    keys.forEach(key => colDefs.push({field : key}))
-    this.gridOptions.api.setColumnDefs(colDefs);
-    this.gridOptions.api.setRowData(data);
-  })
-  */
-  p : number =1;
-  constructor(private candidateService : CandidateService) { }
+  candidates: Candidate[];
+  allCandidates: Candidate[] = [];
+  selectedCandidates: Candidate[] = [];
+  candidateName: String;
+  p: number = 1;
+  constructor(private candidateService: CandidateService , public snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.listOfCandidates();
   }
-  sc : boolean =false;
-  schedule(){
-    this.sc=true;
+  sc: boolean = false;
+  schedule() {
+    this.sc = true;
   }
-  getschedule(){
+  getschedule() {
     return this.schedule;
   }
+  getCandidateName(val: string) {
+    this.candidateName = val;
+    console.log(this.candidateName);
+  }
+
   listOfCandidates() {
     this.candidateService.getCandidates().subscribe(
       data => {
         this.candidates = data;
-        
+        this.allCandidates = data;
       }
     )
   }
+
+  getCandidates() {
+    console.log("Get Candidates Working");
+    if (this.candidateName != "" && this.candidateName != null) {
+      for (var candidate of this.allCandidates) {
+        if (candidate.name.toLowerCase() === this.candidateName.toLowerCase()) {
+          this.selectedCandidates.push(candidate);
+        }
+      }
+      if(this.selectedCandidates.length>0)
+      {
+       this.candidates = this.selectedCandidates;
+       this.selectedCandidates = [];
+      }
+      else{
+        this.openSnackBar("No Records Found","act");
+      }
+    }
+    if(this.candidateName=="")
+    {
+      this.candidates=this.allCandidates;
+    }
+  }
+
+  openSnackBar(message: string, action: string) {  
+    this.snackBar.open(message, action, {  
+       duration: 2000,  
+    });  
+  } 
+  
+
 }

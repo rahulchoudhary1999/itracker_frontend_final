@@ -1,38 +1,63 @@
-
 <div class="container" id="show">
-    <div class ="heading" style = "text-align: center;">All Applicants</div>
-    <table class = "data feedbacks">
-         <thead class = "table-heading">
-         <tr>
-           
-             <th><h2>Name</h2></th>
-             <th><h2>Email</h2></th>
-             <th><h2>Contact Number</h2></th>
-             <th><h2>Resume Link</h2></th>
-             <!-- <th><h2>Schedule An Interview</h2></th> -->
-         </tr>
-         </thead>
-         <tbody>
-             <tr *ngFor="let c of candidates | paginate:{ itemsPerPage:5, currentPage: p}">
-                
-                 <td>{{c.name}}</td>
-                 <td>{{c.email}}</td>
-                 <td>{{c.contactNo}}</td>
-                 <td>{{c.resumeLink}}</td>
-                 <!-- <td><button type="button" (click)="schedule()">Schedule</button></td> -->
-             </tr>
-         </tbody>
+    <div class="heading" style="text-align: center;">All Applicants</div>
+
+    <table class="input">
+        <tr>
+            <td>
+                <mat-form-field class="input-field" appearance="outline" color="primary">
+                    <mat-label>Candidate Name</mat-label>
+                    <input #candidateName matInput type="text" (keyup)="getCandidateName(candidateName.value)">
+                </mat-form-field>
+            </td>
+            <td>
+                <button (click)="getCandidates()" class="search-btn" mat-raised-button color="primary">
+                    Search
+                    <mat-icon aria-hidden="false" aria-label="Example Search icon">search</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </table>
+
+    <table class="data feedbacks">
+        <thead class="table-heading">
+            <tr>
+
+                <th>
+                    <h2>Name</h2>
+                </th>
+                <th>
+                    <h2>Email</h2>
+                </th>
+                <th>
+                    <h2>Contact Number</h2>
+                </th>
+                <th>
+                    <h2>Resume Link</h2>
+                </th>
+                <!-- <th><h2>Schedule An Interview</h2></th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of candidates | paginate:{ itemsPerPage:5, currentPage: p}">
+
+                <td>{{c.name}}</td>
+                <td>{{c.email}}</td>
+                <td>{{c.contactNo}}</td>
+                <td>{{c.resumeLink}}</td>
+                <!-- <td><button type="button" (click)="schedule()">Schedule</button></td> -->
+            </tr>
+        </tbody>
 
         <div>
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
-       
+
     </table>
     <!-- <div *ngIf="getschedule()">
         <app-schedule-interview></app-schedule-interview>
     </div> -->
- </div>
- <!--
+</div>
+<!--
  <body>
      <ag-grid-angular id="mygrid" style="width : 500px;height: 500px" class="ag-theme-balham">
         <h1>all data</h1>
@@ -64,4 +89,3 @@
  </script>
  </body>
  -->
- 

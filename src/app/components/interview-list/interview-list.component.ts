@@ -8,6 +8,7 @@ import { CandidateService } from 'src/app/services/candidate.service';
 import { DownloadCsvService } from 'src/app/services/download-csv.service';
 import { Time } from '@angular/common';
 import { DatePipe } from '@angular/common'
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-interview-list',
   templateUrl: './interview-list.component.html',
@@ -16,9 +17,13 @@ import { DatePipe } from '@angular/common'
 export class InterviewListComponent implements OnInit {
 
   slots : SlotList[];
+  allSlots : SlotList[]=[];
+  selectedSlots : SlotList[]=[];
   p : number =1;
-  constructor(public datepipe : DatePipe,private downloadCsvServive : DownloadCsvService,private slotListService : SlotListService) { }
+  constructor(public datepipe : DatePipe,private downloadCsvServive : DownloadCsvService,
+    private slotListService : SlotListService, public snackBar : MatSnackBar) { }
   JsonArray: any = [];
+  empName : string;
   candidateName : string;
   candidateEmail : string;
   employeeName : string;
@@ -68,14 +73,54 @@ export class InterviewListComponent implements OnInit {
     hiddenElement.download = 'output.csv';
     hiddenElement.click();
   }
+
+  getEmployeeName(name: string )
+  {
+    this.empName = name;
+    console.log(name);
+    
+  }
+
   listOfinterviews() {
     this.slotListService.getSlotList().subscribe(
       data => {
         this.slots = data;
+        this.allSlots = data;
       }
     )
   }
 
- 
+  getSlot()
+  {
+    console.log("get slot working");
+    
+    if(this.empName!= "" && this.empName != null)
+    {
+      for(var slot of this.allSlots)
+      {
+        if(slot.employeeName.toLowerCase()===this.empName)
+        {
+          this.selectedSlots.push(slot);
+        }
+      }
+      if(this.selectedSlots.length>0)
+      {
+        this.slots=this.selectedSlots;
+      }
+      else{
+        this.openSnackBar("No Records Found","act");
+      }
+    }
+    if(this.empName == "")
+    {
+      this.slots=this.allSlots;
+    }
+  }
+
+  openSnackBar(message: string, action: string) {  
+    this.snackBar.open(message, action, {  
+       duration: 2000,  
+    });  
+   }
 
 }

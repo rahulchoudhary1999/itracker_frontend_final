@@ -1,5 +1,21 @@
 <div class="container" id="show">
     <div class="heading" style="text-align: center;">All Interview Slots</div>
+    <table class="input">
+        <tr>
+            <td>
+                <mat-form-field class="input-field" appearance="outline" color="primary">
+                    <mat-label>Employee Name</mat-label>
+                    <input #employeeName matInput type="text" (keyup)="getEmployeeName(employeeName.value)">
+                </mat-form-field>
+            </td>
+            <td>
+                <button (click)="getSlot()" class="search-btn" mat-raised-button color="primary">
+                    Search
+                    <mat-icon aria-hidden="false" aria-label="Example Search icon">search</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </table>
     <table class = "data feedbacks">
          <thead class="table-heading">
          <tr>
@@ -32,4 +48,7 @@
        
     </table>
  </div>
- <button (click)="downloadFile()">Download CSV File</button>
+ <button (click)="downloadFile()" class="search-btn" mat-raised-button color="primary">
+    Download
+</button>
+ <!-- <button (click)="downloadFile()">Download CSV File</button> -->
