@@ -1,5 +1,8 @@
-<body class="home">
+
+<div class="container" id="show">
+<body class="home" style = "width: 100%;">
     <p class="heading"> Jobs </p>
+   
     <table class="input">
         <tr>
             <td>
@@ -41,7 +44,7 @@
 
             </tr>
         </thead>
-        <tr *ngFor="let ja of jobApplication | paginate:{itemsPerPage:2,currentPage:p};">
+        <tr *ngFor="let ja of jobApplication | paginate:{itemsPerPage:5,currentPage:p};">
             <td>{{ja.jobId}}</td>
             <td>{{ja.role}}</td>
             <td>{{ja.description}}</td>
@@ -51,4 +54,4 @@
         <pagination-controls (pageChange) = " p = $event"></pagination-controls>
     </table>
 
-</body>
+</body></div>

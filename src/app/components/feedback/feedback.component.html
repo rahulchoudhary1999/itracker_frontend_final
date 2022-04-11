@@ -27,10 +27,10 @@
             <th> Email </th>
             <th> Scores </th>
             <th> Round </th>
-            <th>  Comments </th>
+            <th> Comments </th>
             <th> Status </th>
         </thead>
-        <tr *ngFor="let cf of candidateFeedback | paginate:{itemsPerPage:2,currentPage:p};">
+        <tr *ngFor="let cf of candidateFeedback | paginate:{itemsPerPage:5,currentPage:p};">
             <td>{{cf.candidateName}}</td>
             <td>{{cf.email}}</td>
             <td>{{cf.score}}</td>

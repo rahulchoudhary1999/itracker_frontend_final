@@ -29,7 +29,7 @@
                 <th> Date </th>
                 <th> Time </th>
             </thead>
-            <tr *ngFor="let slot of slots | paginate:{itemsPerPage:2,currentPage:p};">
+            <tr *ngFor="let slot of slots | paginate:{itemsPerPage:5,currentPage:p};">
                 <td>{{slot.name}}</td>
                 <td>{{slot.email}}</td>
                 <td>{{slot.date}}</td>

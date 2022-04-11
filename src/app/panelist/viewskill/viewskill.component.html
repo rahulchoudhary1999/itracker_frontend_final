@@ -53,10 +53,10 @@
                         <form #addSkillForm="ngForm" (ngSubmit)="onAddSkill(addSkillForm)">
                         <div class="form-group">
                            <label for="emp_id">employeeId</label>
-                           <input type="text" ngModel name="employeeId" class="form-control" id="emp_id"  placeholder={{employeeId}} required>
+                           <input type="text" name="employeeId" ngmodel class="form-control" id="emp_id"  placeholder={{employeeId}} readonly>
                         </div>
                         <div class="form-group">
-                           <label for="skillId">skillName</label>
+                           <label for="skillId">Skill Name</label>
                            <!-- <input type="text" ngModel name="skillName" id="skillName"> -->
                            <select class ="form-control" ngModel name="skillId" required>
                          <option  *ngFor ="let skillname of skillsAvailable" value={{skillname.skillId}}>{{skillname.skill}}</option> 

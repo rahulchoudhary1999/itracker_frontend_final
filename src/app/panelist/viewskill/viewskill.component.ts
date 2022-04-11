@@ -18,6 +18,7 @@ export class ViewskillComponent implements OnInit {
   public skillsAvailable: Onlyskills[];
   public deleteSkill: Skills | null;
   employeeId:any;
+  data: any;
 
   constructor(private skillService: SkillsService) {
     this.employeeId=localStorage.getItem("employeeId");
@@ -57,8 +58,9 @@ export class ViewskillComponent implements OnInit {
     public onAddSkill(addSkillForm: NgForm): void{
       document.getElementById('add-employee-form')?.click();
        console.log(addSkillForm.value);
-      
-      this.skillService.addSkill(addSkillForm.value).subscribe(
+       this.data = addSkillForm.value;
+       this.data.employeeId = this.employeeId;
+      this.skillService.addSkill(this.data).subscribe(
         (response: Skills)=>{
           console.log(response);
           alert(JSON.stringify(response));
