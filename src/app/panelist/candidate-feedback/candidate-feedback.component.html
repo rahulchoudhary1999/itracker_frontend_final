@@ -9,7 +9,6 @@
         <option *ngFor ="let candidates of candidateList" value={{candidates.name}}>{{candidates.name}}</option> 
           </select>
     </p>
-
     <p>
       <label for="email">Candidate Email</label>
       <select class ="form-control" id = "fieldb" ngModel name="email" required>
@@ -20,7 +19,7 @@
    
     <p>
       <label for="score">Score</label>
-      <input type="number" name="score" id = "fieldb" ngModel class="form-control">
+      <input type="number" name="score" id = "fieldb" ngModel class="form-control" min="1" max ="100">
     </p>
    
     <p>
@@ -60,7 +59,7 @@
       
   <div class="modal-footer">
     <p>
-      <button type="submit">Submit</button>
+      <button [disabled]="contactForm.invalid" type="submit">Submit</button>
     </p>
     </div>
   </form>

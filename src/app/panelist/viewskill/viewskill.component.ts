@@ -31,6 +31,7 @@ export class ViewskillComponent implements OnInit {
 
     this.skillService.getAllSkills().subscribe((data: Onlyskills[])=>{
       this.skillsAvailable=data;
+      
     })}
     public getSkillsByEmpId():void{
       this.skillService.getSkillsByEmpId().subscribe(

@@ -16,4 +16,5 @@ export class AvailableSlots {
     "name" : string;
     "date" :  Date;
     "time" : Time;
+    "primeSkill" : string;
 }

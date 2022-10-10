@@ -5,29 +5,16 @@ export class Candidate {
     "gender": string;
     "resumeLink": string;
     "candidateID": number;
-
-
-
-
-
-
-
+    "primeSkill":string;
     
-
-
-
-
-
-
-
-    
-     constructor(id : number,name : string,email : string , contact : string , gender : string ,link : string){
+     constructor(id : number,name : string,email : string , contact : string , gender : string ,link : string, skill: string){
          this.candidateID=id;
          this.contactNo = contact;
          this.email=email;
          this.gender=gender;
          this.name = name;
          this.resumeLink = link;
+         this.primeSkill = skill;
      }
      
 }

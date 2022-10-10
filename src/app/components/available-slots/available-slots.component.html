@@ -24,12 +24,14 @@
     <div class="data">
         <table class="slots">
             <thead class="table-heading">
+                <th> Employee ID</th>
                 <th> Employee Name</th>
                 <th> Email </th>
                 <th> Date </th>
                 <th> Time </th>
             </thead>
-            <tr *ngFor="let slot of slots | paginate:{itemsPerPage:5,currentPage:p};">
+            <tr *ngFor="let slot of slots | paginate:{itemsPerPage:3,currentPage:p};">
+                <td>{{slot.employeeId}}</td>
                 <td>{{slot.name}}</td>
                 <td>{{slot.email}}</td>
                 <td>{{slot.date}}</td>
@@ -37,6 +39,39 @@
             </tr>
             <!-- <pagination-controls(pageChange)" p = $event "></pagination-controls> -->
             <pagination-controls (pageChange)=" p = $event"></pagination-controls>
+        </table>
+    </div>
+
+    <!-- <div class="data">
+        <table class="slots">
+            <thead class="table-heading"> -->
+                <table class="input">
+                    <tr>
+                        <td>
+                            <mat-form-field class="input-field" appearance="outline" color="primary">
+                                <mat-label>EmployeeId</mat-label>
+                                <input #employeeId matInput type="text" (keyup)="getEmployeeId(employeeId.value)">
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <button (click)="getEmployeeSkills()" class="search-btn" mat-raised-button color="primary">
+                                Search
+                                <mat-icon aria-hidden="false" aria-label="Example Search icon">search</mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="data">
+                    <table class="skillslots">
+                        <thead>
+                <th> EmployeeID</th>
+                <th> Skill Name</th>
+            </thead>
+            <tr *ngFor="let empSkill of empSkillMapper;">
+                <td>{{empSkill.employeeId}}</td>
+                <td>{{empSkill.skill}}</td>
+            </tr>
         </table>
     </div>
 </div>

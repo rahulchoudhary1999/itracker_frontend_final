@@ -23,6 +23,9 @@
             <tr>
 
                 <th>
+                    <h2>CandidateID</h2>
+                </th>
+                <th>
                     <h2>Name</h2>
                 </th>
                 <th>
@@ -34,16 +37,21 @@
                 <th>
                     <h2>Resume Link</h2>
                 </th>
+                <th>
+                    <h2>Prime Skill</h2>
+                </th>
+
                 <!-- <th><h2>Schedule An Interview</h2></th> -->
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let c of candidates | paginate:{ itemsPerPage:5, currentPage: p}">
-
+                <td>{{c.candidateID}}</td>
                 <td>{{c.name}}</td>
                 <td>{{c.email}}</td>
                 <td>{{c.contactNo}}</td>
                 <td>{{c.resumeLink}}</td>
+                <td>{{c.primeSkill}}</td>
                 <!-- <td><button type="button" (click)="schedule()">Schedule</button></td> -->
             </tr>
         </tbody>

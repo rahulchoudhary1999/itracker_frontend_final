@@ -15,10 +15,20 @@ export class SkillsService {
 
   constructor(private http: HttpClient) { }
 
+  getAllData():Observable<any>{
+    return this.http.get<Skills[]>(`http://localhost:8080/api/v1/employee/skill/`);
+  }
+  getSkillsByEmail(email?:String):Observable<any>{
+    console.log(`http://localhost:8080/api/v1/employee/e_id/${email}`);
+    return this.http.get<Skills[]>(`http://localhost:8080/api/v1/employee/e_id/${email}`);
+  }
   getSkillsByEmpId(): Observable<Skills[]>{
     return this.http.get<Skills[]>(`${this.baseUrl}`);
   }
   
+  getSkillsbyEmpId(Id: String): Observable<Skills[]>{
+    return this.http.get<Skills[]>(`http://localhost:8080/api/v1/employee/skill/e_id/${Id}`);
+  }
   deleteSkill(Id?:number):Observable<any>{
     console.log(`http://localhost:8080/api/v1/employee/skill/${Id}`);
     return this.http.delete<any>(`http://localhost:8080/api/v1/employee/skill/r_id/${Id}`);

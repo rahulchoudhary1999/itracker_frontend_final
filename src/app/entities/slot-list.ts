@@ -1,5 +1,4 @@
 import { Time } from "@angular/common";
-
 export class SlotList {
     "candidateName": string;
     "candidateEmail": string;
@@ -8,4 +7,5 @@ export class SlotList {
     "date": Date=new Date();
     "time": Time;
     "round": string;
+    "skills": any;
 }

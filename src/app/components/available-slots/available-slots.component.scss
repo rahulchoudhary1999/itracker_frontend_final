@@ -29,6 +29,19 @@ body{
 
 .slots tr:nth-child(even){background-color: #f2f2f2;}
 
+.skillslots td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.skillslots th
+{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.skillslots tr:nth-child(even){background-color: #f2f2f2;}
+
 .data{
  width: 100%;
  margin-left: 100px;
@@ -37,6 +50,12 @@ body{
 .slots{
     border-collapse: "collapse";
     width: 100%;
+    margin: auto;
+}
+
+.skillslots{
+    border-collapse: "collapse";
+    width: 40%;
     margin: auto;
 }
 

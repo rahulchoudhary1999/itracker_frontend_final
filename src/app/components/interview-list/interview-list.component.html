@@ -1,12 +1,12 @@
 <div class="container" id="show">
     <div class="heading" style="text-align: center;">All Interview Slots</div>
-    <table class="input">
+    <!-- <table class="input">
         <tr>
             <td>
                 <mat-form-field class="input-field" appearance="outline" color="primary">
                     <mat-label>Employee Name</mat-label>
-                    <input #employeeName matInput type="text" (keyup)="getEmployeeName(employeeName.value)">
-                </mat-form-field>
+                     <input #employeeName matInput type="text" (keyup)="getEmployeeName(employeeName.value)"> -->
+                <!-- </mat-form-field>
             </td>
             <td>
                 <button (click)="getSlot()" class="search-btn" mat-raised-button color="primary">
@@ -15,27 +15,23 @@
                 </button>
             </td>
         </tr>
-    </table>
+    </table> --> 
     <table class = "data feedbacks">
          <thead class="table-heading">
          <tr>
             
-             <th><h2>Employee Name</h2></th>
-             <th><h2>Employee Email</h2></th>
-             <th><h2>Candidate Name</h2></th>
-             <th><h2>Candidate Email</h2></th>
+             <th><h2>Employee-Id</h2></th>
+             <th><h2>Candidate-Id</h2></th>
              <th><h2>Date</h2></th>
              <th><h2>Time</h2></th>
              <th><h2>Round</h2></th>
+             <!-- <th><h2>Skill</h2></th> -->
          </tr>
          </thead>
          <tbody>
              <tr *ngFor="let s of slots | paginate:{ itemsPerPage:5, currentPage: p}">
-               
-                 <td>{{s.employeeName}}</td>
-                 <td>{{s.employeeEmail}}</td>
-                 <td>{{s.candidateName}}</td>
-                 <td>{{s.candidateEmail}}</td>
+                 <td>{{s.empId}}</td>
+                 <td>{{s.candidateId}}</td>
                  <td>{{s.date}}</td>
                  <td>{{s.time}}</td>
                  <td>{{s.round}}</td>
@@ -48,7 +44,7 @@
        
     </table>
  </div>
- <button (click)="downloadFile()" class="search-btn" mat-raised-button color="primary">
+ <button (click)="downloadFile()" class="download" mat-raised-button color="primary">
     Download
 </button>
  <!-- <button (click)="downloadFile()">Download CSV File</button> -->

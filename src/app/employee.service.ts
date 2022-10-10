@@ -17,6 +17,11 @@ export class EmployeeService {
   }
   public getEmployeeById():Observable<any>{
     return this.http.get<any>(`${this.apiServerUrl}/api/v1/employee/${this.id}`)
+
+  }
+
+  public getEmployeebyId(Id:string):Observable<any>{
+    return this.http.get<any>(`${this.apiServerUrl}/api/v1/employee/${Id}`);
   }
   public addSlot(data:any):Observable<any>{
     // console.log("Data received"+data);
